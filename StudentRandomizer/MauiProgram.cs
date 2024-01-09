@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Markup;
 
 namespace StudentRandomizer
 {
@@ -8,6 +10,8 @@ namespace StudentRandomizer
         {
             var builder = MauiApp.CreateBuilder();
             builder
+                .UseMauiCommunityToolkit()
+                .UseMauiCommunityToolkitMarkup()
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
@@ -16,7 +20,7 @@ namespace StudentRandomizer
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
