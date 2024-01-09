@@ -18,5 +18,10 @@ namespace StudentRandomizer.Models
         public ClassModel() : base() { _className = String.Empty; }
         public ClassModel(Guid id, string className) : base(id) { _className = className; }
         public ClassModel(string className) : base() { _className = className; }
+
+        public override string ToString()
+        {
+            return $"{_id},{_className}";
+        }
     }
 }
