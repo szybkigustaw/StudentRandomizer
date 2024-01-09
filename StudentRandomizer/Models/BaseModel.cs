@@ -22,5 +22,10 @@ namespace StudentRandomizer.Models
         {
             _id = id;
         }
+
+        public override string ToString()
+        {
+            return $"{_id}";
+        }
     }
 }
