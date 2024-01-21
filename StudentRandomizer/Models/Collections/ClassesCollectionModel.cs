@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentRandomizer.Models.Collections
 {
-    internal class ClassesCollectionModel : BaseCollectionModel<ClassModel>
+    public class ClassesCollectionModel : BaseCollectionModel<ClassModel>
     {
         private ObservableCollection<ClassModel> _items = new ObservableCollection<ClassModel>();
 

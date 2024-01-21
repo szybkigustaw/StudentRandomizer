@@ -13,7 +13,8 @@ namespace StudentRandomizer.ViewModels
 {
     public class StudentsViewModel : INotifyPropertyChanged
     {
-        private StudentsCollectionModel _collectionModel;
+        private StudentsCollectionModel _studentsCollectionModel;
+        private ClassesCollectionModel _classesCollectionModel;
 
         private ObservableCollection<StudentModel> _models;
 
@@ -38,10 +39,11 @@ namespace StudentRandomizer.ViewModels
             return true;
         }
 
-        public StudentsViewModel(StudentsCollectionModel studentsCollectionModel)
+        public StudentsViewModel(StudentsCollectionModel studentsCollectionModel, ClassesCollectionModel classesCollectionModel)
         {
-            this._collectionModel = studentsCollectionModel;
-            this._models = _collectionModel.Items;
+            this._studentsCollectionModel = studentsCollectionModel;
+            this._classesCollectionModel = classesCollectionModel;
+            this._models = _studentsCollectionModel.Items;
         }
     }
 }
