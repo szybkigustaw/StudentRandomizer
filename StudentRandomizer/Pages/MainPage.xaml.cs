@@ -1,24 +1,25 @@
-﻿namespace StudentRandomizer
+﻿namespace StudentRandomizer.Pages
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            count++;
+            await Shell.Current.GoToAsync("/RandomizerPage");
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("/StudentsListPage");
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private async void Button_Clicked_2(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("/ClassesListPage");
         }
     }
 
