@@ -12,4 +12,17 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+    <ShellContent
+        Title="Select a student"
+        ContentTemplate="{DataTemplate local:RandomizerPage}"
+        Route="RandomizerPage" />
+    <ShellContent
+        Title="Students list"
+        ContentTemplate="{DataTemplate local:EditStudentsListPage}"
+        Route="StudentsListPage" />
+    <ShellContent
+        Title="Classes list"
+        ContentTemplate="{DataTemplate local:EditClassesListPage}"
+        Route="ClassesListPage" />
+
 </Shell>
