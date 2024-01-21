@@ -21,6 +21,7 @@ namespace StudentRandomizer
                 });
 
             builder.Services.AddSingleton<StudentsCollectionModel>();
+            builder.Services.AddSingleton<ClassesCollectionModel>();
 
 #if DEBUG
             builder.Logging.AddDebug();
