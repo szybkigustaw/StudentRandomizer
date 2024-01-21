@@ -6,9 +6,6 @@
     xmlns:v="clr-namespace:StudentRandomizer.Views"
     xmlns:vm="clr-namespace:StudentRandomizer.ViewModels"
     Title="EditStudentsListPage">
-    <ContentPage.BindingContext>
-        <vm:StudentsViewModel />
-    </ContentPage.BindingContext>
     <VerticalStackLayout>
         <CollectionView ItemsSource="{Binding Models}">
             <CollectionView.ItemTemplate>
