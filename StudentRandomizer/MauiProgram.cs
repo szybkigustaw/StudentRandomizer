@@ -4,6 +4,7 @@ using CommunityToolkit.Maui.Markup;
 using StudentRandomizer.Models.Collections;
 using StudentRandomizer.Parsers;
 using StudentRandomizer.Services;
+using StudentRandomizer.ViewModels;
 
 namespace StudentRandomizer
 {
@@ -24,6 +25,7 @@ namespace StudentRandomizer
 
             builder.Services.AddSingleton<StudentsCollectionModel>();
             builder.Services.AddSingleton<ClassesCollectionModel>();
+            builder.Services.AddSingleton<StudentsViewModel>();
             builder.Services.AddSingleton<StudentsParser>();
             builder.Services.AddSingleton<ClassParser>();
 

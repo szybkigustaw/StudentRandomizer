@@ -1,4 +1,5 @@
 ﻿using StudentRandomizer.Services;
+using System.Diagnostics;
 
 namespace StudentRandomizer
 {
@@ -9,7 +10,16 @@ namespace StudentRandomizer
         {
             InitializeComponent();
             _startupService = startupService;
-            _startupService.LoadData();
+            try
+            {
+                _startupService.LoadData();
+            }
+            catch (Exception ex) 
+            {
+#if DEBUG
+                Debug.WriteLine(ex.Message);
+#endif
+            }
             MainPage = new AppShell();
         }
     }
