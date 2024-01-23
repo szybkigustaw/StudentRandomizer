@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 using CommunityToolkit.Maui.Markup;
+using StudentRandomizer.Models.Collections;
 
 namespace StudentRandomizer
 {
@@ -18,6 +19,9 @@ namespace StudentRandomizer
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddSingleton<StudentsCollectionModel>();
+            builder.Services.AddSingleton<ClassesCollectionModel>();
 
 #if DEBUG
             builder.Logging.AddDebug();
