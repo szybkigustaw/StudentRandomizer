@@ -4,11 +4,9 @@ namespace StudentRandomizer.Pages;
 
 public partial class EditStudentsListPage : ContentPage
 {
-	private StudentsViewModel _viewmodel;
-	public EditStudentsListPage()
-	{
+	public EditStudentsListPage(StudentsViewModel viewmodel)
+	{ 
 		InitializeComponent();
-		_viewmodel = this.Handler.MauiContext.Services.GetService<StudentsViewModel>();
-		this.BindingContext = _viewmodel;
+		this.BindingContext = viewmodel;
 	}
 }

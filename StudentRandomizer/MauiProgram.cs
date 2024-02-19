@@ -5,6 +5,7 @@ using StudentRandomizer.Models.Collections;
 using StudentRandomizer.Parsers;
 using StudentRandomizer.Services;
 using StudentRandomizer.ViewModels;
+using StudentRandomizer.Pages;
 
 namespace StudentRandomizer
 {
@@ -23,6 +24,7 @@ namespace StudentRandomizer
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddTransient<EditStudentsListPage>();
             builder.Services.AddSingleton<StudentsCollectionModel>();
             builder.Services.AddSingleton<ClassesCollectionModel>();
             builder.Services.AddSingleton<StudentsViewModel>();
