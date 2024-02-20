@@ -1,10 +1,16 @@
-﻿namespace StudentRandomizer.Pages
+﻿using StudentRandomizer.Services;
+
+namespace StudentRandomizer.Pages
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        public LuckyNumberService LuckyNumberService { get; set; }
+
+        public MainPage(LuckyNumberService luckyNumber)
         {
             InitializeComponent();
+            LuckyNumberService = luckyNumber;
+            this.LuckyNumber.Text = LuckyNumberService.LuckyNumber.ToString();
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

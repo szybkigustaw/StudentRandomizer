@@ -25,6 +25,5 @@
             <Label Text="Is present?" />
             <CheckBox IsChecked="{Binding IsPresent}" />
         </HorizontalStackLayout>
-        <Button Clicked="Button_Clicked" Text="Edit" />
     </HorizontalStackLayout>
 </ContentView>
