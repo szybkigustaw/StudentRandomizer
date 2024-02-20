@@ -3,15 +3,28 @@
     x:Class="StudentRandomizer.Views.StudentView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:StudentRandomizer.Views">
-    <ContentView.BindingContext>
-        <local:StudentView />
-    </ContentView.BindingContext>
-    <HorizontalStackLayout Padding="20" Spacing="20">
-        <Label x:Name="studentName" Text="{Binding StudentFullName}" />
-        <Label x:Name="className" Text="{Binding StudentClassName}" />
+    xmlns:v="clr-namespace:StudentRandomizer.Views">
+    <HorizontalStackLayout
+        Padding="20"
+        HorizontalOptions="Fill"
+        Spacing="20"
+        VerticalOptions="Center">
         <HorizontalStackLayout Spacing="10">
-            <CheckBox IsChecked="{Binding StudentIsPresent}" />
+            <Label Text="First Name" />
+            <Label Text="{Binding FirstName}" />
         </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Last Name" />
+            <Label Text="{Binding LastName}" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Class" />
+            <Label Text="{Binding ClassId}" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Is present?" />
+            <CheckBox IsChecked="{Binding IsPresent}" />
+        </HorizontalStackLayout>
+        <Button Clicked="Button_Clicked" Text="Edit" />
     </HorizontalStackLayout>
 </ContentView>

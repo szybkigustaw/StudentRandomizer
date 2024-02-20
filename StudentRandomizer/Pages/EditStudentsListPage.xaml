@@ -9,14 +9,19 @@
     Title="EditStudentsListPage"
     x:DataType="vm:StudentsViewModel">
     <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Button Clicked="Button_Clicked_1" Text="Go Back" />
+            <Button Clicked="Button_Clicked" Text="Add new student" />
+        </HorizontalStackLayout>
         <CollectionView ItemsSource="{Binding Models}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="m:StudentModel">
                     <v:StudentView
-                        StudentClassName="{Binding Path=ClassId}"
-                        StudentFirstName="{Binding Path=FirstName}"
-                        StudentIsPresent="{Binding Path=IsPresent}"
-                        StudentLastName="{Binding Path=LastName}" />
+                        ClassId="{Binding ClassId}"
+                        FirstName="{Binding FirstName}"
+                        IsPresent="{Binding IsPresent}"
+                        LastName="{Binding LastName}"
+                        StudentId="{Binding Id}" />
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

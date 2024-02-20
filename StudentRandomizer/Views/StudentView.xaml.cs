@@ -1,55 +1,64 @@
+using StudentRandomizer.Models.Collections;
+using StudentRandomizer.Popups;
+
 namespace StudentRandomizer.Views;
 
 public partial class StudentView : ContentView
 {
-	public static readonly BindableProperty StudentFirstNameProperty = BindableProperty.Create(
-		nameof(StudentFirstName),
+	public static readonly BindableProperty FirstNameProperty = BindableProperty.Create(
+		nameof(FirstName),
 		typeof(string),
 		typeof(StudentView)
 		);
 
-	public static readonly BindableProperty StudentLastNameProperty = BindableProperty.Create(
-		nameof(StudentLastName),
+	public static readonly BindableProperty LastNameProperty = BindableProperty.Create(
+		nameof(LastName),
 		typeof(string),
 		typeof(StudentView)
 		);
 
-	public static readonly BindableProperty StudentClassNameProperty = BindableProperty.Create(
-		nameof(StudentClassName),
-		typeof(string),
+	public static readonly BindableProperty ClassIdProperty = BindableProperty.Create(
+		nameof(ClassId),
+		typeof(Guid),
 		typeof(StudentView)
 		);
 
-	public static readonly BindableProperty StudentIsPresentProperty = BindableProperty.Create(
-		nameof(StudentIsPresent),
+	public static readonly BindableProperty StudentIdProperty = BindableProperty.Create(
+		nameof(StudentId),
+		typeof(Guid),
+		typeof(StudentView)
+		);
+
+	public static readonly BindableProperty IsPresentProperty = BindableProperty.Create(
+		nameof(IsPresent),
 		typeof(bool),
 		typeof(StudentView)
 		);
 
-	public string StudentFirstName 
+	public string FirstName 
 	{
-		get => (string)GetValue(StudentFirstNameProperty);
-		set => SetValue(StudentFirstNameProperty, value);
+		get => (string)GetValue(FirstNameProperty);
+		set => SetValue(FirstNameProperty, value);
 	}
-	public string StudentLastName 
+	public string LastName 
 	{
-		get => (string)GetValue(StudentLastNameProperty);
-		set => SetValue(StudentLastNameProperty, value);
+		get => (string)GetValue(LastNameProperty);
+		set => SetValue(LastNameProperty, value);
 	}
-	public string StudentClassName 
+	public Guid ClassId
 	{
-		get => (string)GetValue(StudentClassNameProperty);
-		set => SetValue(StudentClassNameProperty, value);
+		get => (Guid)GetValue(ClassIdProperty);
+		set => SetValue(ClassIdProperty, value);
 	}
-	public bool StudentIsPresent 
+	public Guid StudentId
 	{
-		get => (bool)GetValue(StudentIsPresentProperty);
-		set => SetValue(StudentIsPresentProperty, value);
+		get => (Guid)GetValue(StudentIdProperty);
+		set => SetValue(StudentIdProperty, value);
 	}
-
-	public string StudentFullName
+	public bool IsPresent 
 	{
-		get => String.Concat(StudentFirstName, " ", StudentLastName);
+		get => (bool)GetValue(IsPresentProperty);
+		set => SetValue(IsPresentProperty, value);
 	}
 	public StudentView()
 	{
