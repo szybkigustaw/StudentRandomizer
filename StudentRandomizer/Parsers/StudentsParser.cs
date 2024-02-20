@@ -34,9 +34,9 @@ namespace StudentRandomizer.Parsers
                     Guid.Parse(model_parts[0]),
                     model_parts[1],
                     model_parts[2],
-                    bool.Parse(model_parts[3]),
-                    Convert.ToInt32(model_parts[4]),
-                    model_parts[5] == "null" ? null : Guid.Parse(model_parts[5])
+                    bool.Parse(model_parts[4]),
+                    Convert.ToInt32(model_parts[5]),
+                    model_parts[5] == "null" ? null : Guid.Parse(model_parts[3])
                     );
                 models.Add(model);
             }

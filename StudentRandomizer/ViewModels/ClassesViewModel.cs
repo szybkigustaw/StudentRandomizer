@@ -8,27 +8,22 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace StudentRandomizer.ViewModels
 {
-    public class StudentsViewModel : INotifyPropertyChanged
+    public class ClassesViewModel : INotifyPropertyChanged
     {
-        private StudentsCollectionModel _studentsCollectionModel;
         private ClassesCollectionModel _classesCollectionModel;
 
-        private ObservableCollection<StudentModel> _models;
+        private ObservableCollection<ClassModel> _models;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ICommand EditStudentCommand { get; set; }
-
-        public ObservableCollection<StudentModel> Models
+        public ObservableCollection<ClassModel> Models
         {
             get => _models;
             set => SetProperty(ref _models, value, nameof(Models));
         }
-
         private void OnPropertyChanged([CallerMemberName] string propertyName = "")
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         private bool SetProperty<T>(ref T property, T value, [CallerMemberName] string propertyName = "")
@@ -43,11 +38,10 @@ namespace StudentRandomizer.ViewModels
             return true;
         }
 
-        public StudentsViewModel(StudentsCollectionModel studentsCollectionModel, ClassesCollectionModel classesCollectionModel)
+        public ClassesViewModel(ClassesCollectionModel classesCollectionModel)
         {
-            this._studentsCollectionModel = studentsCollectionModel;
             this._classesCollectionModel = classesCollectionModel;
-            this._models = _studentsCollectionModel.Items;
+            this._models = _classesCollectionModel.Items;
         }
     }
 }

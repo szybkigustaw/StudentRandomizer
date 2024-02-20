@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="StudentRandomizer.Popups.AddStudentPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:StudentRandomizer.ViewModels"
+    x:DataType="vm:AddStudentPopupViewModel">
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Student's First Name" />
+            <Entry Text="{Binding FirstName}" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Student's Last Name" />
+            <Entry Text="{Binding LastName}" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Student's Class" />
+            <Picker
+                Title="Select a class"
+                ItemDisplayBinding="{Binding ClassName}"
+                ItemsSource="{Binding Classes}"
+                SelectedItem="{Binding StudentClass}" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Is student present?" />
+            <CheckBox IsChecked="{Binding IsPresent}" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Button Clicked="Button_Clicked" Text="Cancel" />
+            <Button Command="{Binding AddStudentCommand}" Text="Add student" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
