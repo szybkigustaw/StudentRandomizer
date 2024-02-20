@@ -12,7 +12,7 @@
             <Label HorizontalTextAlignment="Center">Welcome to the Student Randomizer!</Label>
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="30">
                 <Label>Today's lucky number:</Label>
-                <Label>Not implemented</Label>
+                <Label x:Name="LuckyNumber" />
             </HorizontalStackLayout>
             <VerticalStackLayout
                 MaximumWidthRequest="300"

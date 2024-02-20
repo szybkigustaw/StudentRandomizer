@@ -34,8 +34,11 @@ namespace StudentRandomizer
             builder.Services.AddSingleton<ClassesViewModel>();
             builder.Services.AddSingleton<StudentsParser>();
             builder.Services.AddSingleton<ClassParser>();
+            builder.Services.AddSingleton<MainPage>();
 
             builder.Services.AddSingleton<StartupService>();
+            builder.Services.AddSingleton<StudentsCountService>();
+            builder.Services.AddSingleton<LuckyNumberService>();
 
             builder.Services.AddTransient<AddStudentPopup>();
             builder.Services.AddTransient<AddClassPopup>();

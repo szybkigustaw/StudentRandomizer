@@ -12,7 +12,7 @@ namespace StudentRandomizer
             _startupService = startupService;
             try
             {
-                _startupService.LoadData();
+                _startupService.Init();
             }
             catch (Exception ex) 
             {
