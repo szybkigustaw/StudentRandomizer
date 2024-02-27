@@ -14,9 +14,13 @@
         Route="MainPage" />
 
     <ShellContent
-        Title="Select a student"
+        Title="Select class"
         ContentTemplate="{DataTemplate local:RandomizerPage}"
         Route="RandomizerPage" />
+    <ShellContent
+        Title="Roll a student"
+        ContentTemplate="{DataTemplate local:RollStudentsPage}"
+        Route="RollStudentPage" />
     <ShellContent
         Title="Students list"
         ContentTemplate="{DataTemplate local:EditStudentsListPage}"

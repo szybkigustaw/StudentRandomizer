@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StudentRandomizer.Pages.RandomizerPage"
-             Title="RandomizerPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+<ContentPage
+    x:Class="StudentRandomizer.Pages.RandomizerPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:StudentRandomizer.ViewModels"
+    Title="Choose class"
+    x:DataType="vm:RandomizerPageViewModel">
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Picker
+            ItemDisplayBinding="{Binding ClassName}"
+            ItemsSource="{Binding ClassesList}"
+            SelectedIndexChanged="OnSelectedIndexChanged"
+            SelectedItem="{Binding SelectedClass}" />
+        <HorizontalStackLayout>
+            <Button Clicked="Button_Clicked" Text="Go back" />
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

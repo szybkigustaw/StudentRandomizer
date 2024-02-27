@@ -11,7 +11,7 @@ namespace StudentRandomizer.Models.Collections
     {
         private ObservableCollection<ClassModel> _items = new ObservableCollection<ClassModel>();
 
-        public override ObservableCollection<ClassModel> Items { get { return _items; } }
+        public override ObservableCollection<ClassModel> Items { get { return _items; } set { _items = value; } }
 
         public override ClassModel GetItem(Guid id)
         {
