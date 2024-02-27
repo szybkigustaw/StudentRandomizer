@@ -17,7 +17,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="m:StudentModel">
                     <v:StudentView
-                        ClassId="{Binding ClassId}"
+                        ClassName="{Binding ClassName}"
                         FirstName="{Binding FirstName}"
                         IsPresent="{Binding IsPresent}"
                         LastName="{Binding LastName}"

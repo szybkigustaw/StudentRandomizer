@@ -45,7 +45,13 @@ namespace StudentRandomizer
             builder.Services.AddTransient<AddStudentPopupViewModel>();
             builder.Services.AddTransient<AddClassPopupViewModel>();
 
+            builder.Services.AddTransient<EditClassPopupViewModel>();
+            builder.Services.AddTransient<EditClassPopup>();
+            builder.Services.AddTransient<EditStudentPopup>();
+            builder.Services.AddTransient<EditStudentPopupViewModel>();
+
             builder.Services.AddTransient<StudentView>();
+            builder.Services.AddTransient<ClassView>();
 
 #if DEBUG
             builder.Logging.AddDebug();

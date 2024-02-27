@@ -51,13 +51,13 @@ namespace StudentRandomizer.ViewModels
         public void AddStudent()
         {
             var formedStudent = new StudentModel(
-                    firstName, lastName, isPresent, 0, studentClass.Id
+                    firstName, lastName, isPresent, 0, studentClass.ClassName
                 );
 
             if(
                 _studentsCollectionModel.Items.Where(item => item.FirstName == formedStudent.FirstName &&
                                                                 item.LastName == formedStudent.LastName &&
-                                                                item.ClassId == formedStudent.ClassId)
+                                                                item.ClassName == formedStudent.ClassName)
                     .Count() == 0
                 )
             {

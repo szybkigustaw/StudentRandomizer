@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:StudentRandomizer.Pages"
+    xmlns:popups="clr-namespace:StudentRandomizer.Popups"
     Title="StudentRandomizer"
     Shell.FlyoutBehavior="Disabled">
 
@@ -24,5 +25,15 @@
         Title="Classes list"
         ContentTemplate="{DataTemplate local:EditClassesListPage}"
         Route="ClassesListPage" />
+
+    <ShellContent
+        Title="Edit Class"
+        ContentTemplate="{DataTemplate local:EditClassPopup}"
+        Route="EditClass" />
+
+    <ShellContent
+        Title="Edit Student"
+        ContentTemplate="{DataTemplate local:EditStudentPopup}"
+        Route="EditStudent" />
 
 </Shell>

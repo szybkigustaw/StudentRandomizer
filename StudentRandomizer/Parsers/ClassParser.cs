@@ -31,8 +31,7 @@ namespace StudentRandomizer.Parsers
             {
                 string[] model_parts = model_string.Split(',');
                 ClassModel model = new ClassModel(
-                    Guid.Parse(model_parts[0]),
-                    model_parts[1]
+                    model_parts[0]
                     );
                 models.Add(model);
             }

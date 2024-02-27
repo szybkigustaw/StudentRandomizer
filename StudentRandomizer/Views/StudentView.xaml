@@ -19,11 +19,12 @@
         </HorizontalStackLayout>
         <HorizontalStackLayout Spacing="10">
             <Label Text="Class" />
-            <Label Text="{Binding ClassId}" />
+            <Label Text="{Binding ClassName}" />
         </HorizontalStackLayout>
         <HorizontalStackLayout Spacing="10">
             <Label Text="Is present?" />
             <CheckBox IsChecked="{Binding IsPresent}" />
         </HorizontalStackLayout>
+        <Button Clicked="Button_Clicked" Text="Edit" />
     </HorizontalStackLayout>
 </ContentView>

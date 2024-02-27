@@ -17,5 +17,10 @@ namespace StudentRandomizer.Models.Collections
         {
             return Items.First(x => x.Id == id);
         }
+
+        public ClassModel GetItem(string className)
+        {
+            return Items.First(x => x.ClassName == className);
+        }
     }
 }
