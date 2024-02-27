@@ -10,6 +10,10 @@
         Spacing="20"
         VerticalOptions="Center">
         <HorizontalStackLayout Spacing="10">
+            <Label Text="Index Number" />
+            <Label Text="{Binding IndexNumber}" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="10">
             <Label Text="First Name" />
             <Label Text="{Binding FirstName}" />
         </HorizontalStackLayout>

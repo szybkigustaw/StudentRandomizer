@@ -10,7 +10,7 @@ namespace StudentRandomizer.Models.Collections
 {
     public abstract class BaseCollectionModel<BaseModel>
     {
-        public abstract ObservableCollection<BaseModel> Items { get; }
+        public abstract ObservableCollection<BaseModel> Items { get; set; }
 
         public virtual void AddItem(BaseModel item)
         {

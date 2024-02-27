@@ -5,6 +5,11 @@ namespace StudentRandomizer.Views;
 
 public partial class StudentView : ContentView
 {
+	public static readonly BindableProperty IndexNumberProperty = BindableProperty.Create(
+		nameof(IndexNumber),
+		typeof(int),
+		typeof(StudentView)
+		);
 	public static readonly BindableProperty FirstNameProperty = BindableProperty.Create(
 		nameof(FirstName),
 		typeof(string),
@@ -35,6 +40,11 @@ public partial class StudentView : ContentView
 		typeof(StudentView)
 		);
 
+	public int IndexNumber
+	{
+		get => (int)GetValue(IndexNumberProperty);
+		set => SetValue(IndexNumberProperty, value);
+	}
 	public string FirstName 
 	{
 		get => (string)GetValue(FirstNameProperty);

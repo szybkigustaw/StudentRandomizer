@@ -53,6 +53,10 @@ namespace StudentRandomizer
             builder.Services.AddTransient<StudentView>();
             builder.Services.AddTransient<ClassView>();
 
+            builder.Services.AddTransient<RandomizerPage>();
+            builder.Services.AddTransient<RandomizerPageViewModel>();
+            builder.Services.AddTransient<RollStudentsPageViewModel>();
+            builder.Services.AddTransient<RollStudentsPage>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

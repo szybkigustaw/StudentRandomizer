@@ -50,17 +50,13 @@ namespace StudentRandomizer.ViewModels
 
         public void AddStudent()
         {
+            var classesStudents = _studentsCollectionModel.Items.Where(student => student.ClassName == studentClass.ClassName).ToList();
+            var newIndexNumber = classesStudents.Count() > 0 ? classesStudents.Max(student => student.IndexNumber) + 1 : 1;
+
             var formedStudent = new StudentModel(
-                    firstName, lastName, isPresent, 0, studentClass.ClassName
+                    newIndexNumber, firstName, lastName, isPresent, 0, studentClass.ClassName
                 );
 
-            if(
-                _studentsCollectionModel.Items.Where(item => item.FirstName == formedStudent.FirstName &&
-                                                                item.LastName == formedStudent.LastName &&
-                                                                item.ClassName == formedStudent.ClassName)
-                    .Count() == 0
-                )
-            {
                 _studentsCollectionModel.AddItem(formedStudent);
 
                 _parser.ParseToFile(_studentsCollectionModel.Items.ToList());
@@ -69,7 +65,6 @@ namespace StudentRandomizer.ViewModels
                 LastName = String.Empty;
                 IsPresent = true;
                 StudentClass = null;
-            }
         }
         public AddStudentPopupViewModel(ClassesCollectionModel classesModel, StudentsCollectionModel studentsModel, StudentsParser parser)
         {

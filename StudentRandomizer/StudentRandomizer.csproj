@@ -90,6 +90,9 @@
 		<MauiXaml Update="Pages\EditClassPopup.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="Pages\RollStudentsPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="Popups\AddClassPopup.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>

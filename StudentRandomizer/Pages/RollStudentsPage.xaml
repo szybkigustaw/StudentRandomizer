@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="StudentRandomizer.Pages.EditStudentsListPage"
+    x:Class="StudentRandomizer.Pages.RollStudentsPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:m="clr-namespace:StudentRandomizer.Models"
     xmlns:v="clr-namespace:StudentRandomizer.Views"
     xmlns:vm="clr-namespace:StudentRandomizer.ViewModels"
-    Title="EditStudentsListPage"
-    x:DataType="vm:StudentsViewModel">
+    Title="Roll a student"
+    x:DataType="vm:RollStudentsPageViewModel">
     <VerticalStackLayout>
-        <HorizontalStackLayout>
-            <Button Clicked="Button_Clicked_1" Text="Go Back" />
-            <Button Clicked="Button_Clicked" Text="Add new student" />
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Rolled Class: " />
+            <Label Text="{Binding Path=RolledClass.ClassName}" />
         </HorizontalStackLayout>
-        <CollectionView ItemsSource="{Binding Models}">
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Lucky Number: " />
+            <Label Text="{Binding LuckyNumber}" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="{Binding RolledText}" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Button Clicked="Button_Clicked" Text="Go Back" />
+            <Button Command="{Binding RollStudentCommand}" Text="Roll!" />
+        </HorizontalStackLayout>
+        <CollectionView ItemsSource="{Binding StudentsList}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="m:StudentModel">
                     <v:StudentView

@@ -21,11 +21,13 @@ namespace StudentRandomizer.ViewModels
         private Guid originalId;
         private bool originalIsPresent;
         private int originalRollsSinceSelection;
+        private int originalIndexNumber;
 
         private string firstName;
         private string lastName;
         private ClassModel studentClass;
         private bool isPresent = true;
+        private int indexNumber;
 
         private ClassesCollectionModel _classesCollectionModel;
         private StudentsCollectionModel _studentsCollectionModel;
@@ -41,11 +43,12 @@ namespace StudentRandomizer.ViewModels
         public Guid OriginalId { get => originalId; set => SetProperty(ref originalId, value); }
         public bool OriginalIsPresent { get => originalIsPresent; set => SetProperty(ref originalIsPresent, value); }
         public int OriginalRollsSinceSelection { get => originalRollsSinceSelection; set => SetProperty(ref originalRollsSinceSelection, value); }
-
+        public int OriginalIndexNumber { get => originalIndexNumber; set => SetProperty(ref originalIndexNumber, value); }
         public string FirstName { get => firstName; set => SetProperty(ref firstName, value); }
         public string LastName { get => lastName; set => SetProperty(ref lastName, value); }
         public ClassModel StudentClass { get => studentClass; set => SetProperty(ref studentClass, value); }
         public bool IsPresent { get => isPresent; set => SetProperty(ref isPresent, value); }
+        public int IndexNumber { get => indexNumber; set => SetProperty(ref indexNumber, value); }
 
         public ObservableCollection<ClassModel> Classes { get => _classesCollectionModel.Items; }
         public void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -72,6 +75,7 @@ namespace StudentRandomizer.ViewModels
             //OriginalIsPresent = query["IsPresent"] as Guid;
 
             var student = _studentsCollectionModel.GetItem(OriginalId);
+            OriginalIndexNumber = student.IndexNumber;
             OriginalFirstName = student.FirstName;
             OriginalLastName = student.LastName;
             OriginalIsPresent = student.IsPresent;
@@ -92,28 +96,21 @@ namespace StudentRandomizer.ViewModels
             FirstName = OriginalFirstName;
             LastName = OriginalLastName;
             IsPresent = OriginalIsPresent;
+            IndexNumber = OriginalIndexNumber;
         }
 
         public async void EditStudent()
         {
             var originalStudent = _studentsCollectionModel.GetItem(OriginalId);
+            _studentsCollectionModel.RemoveItem(originalStudent);
             var formedStudent = new StudentModel(
-                    Guid.NewGuid(), firstName, lastName, isPresent, originalRollsSinceSelection, studentClass.ClassName
+                    Guid.NewGuid(), originalIndexNumber, firstName, lastName, isPresent, originalRollsSinceSelection, studentClass.ClassName
                 );
 
-            if(
-                _studentsCollectionModel.Items.Where(item => item.FirstName == formedStudent.FirstName &&
-                                                                item.LastName == formedStudent.LastName &&
-                                                                item.ClassName == formedStudent.ClassName)
-                    .Count() == 0
-                )
-            {
-                _studentsCollectionModel.RemoveItem(originalStudent);
                 _studentsCollectionModel.AddItem(formedStudent);
 
                 _parser.ParseToFile(_studentsCollectionModel.Items.ToList());
                 await Shell.Current.GoToAsync("///StudentsListPage");
-            }
         }
 
         public async void DeleteStudent()
