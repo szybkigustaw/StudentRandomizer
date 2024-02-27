@@ -97,7 +97,7 @@ namespace StudentRandomizer.ViewModels
 #if DEBUG
                 Debug.WriteLine("New rolling round initialized!");
 #endif
-                if(StudentsList.Where(student => student.RollsSinceSelection == 2).Count() == 0 || tries == 10)
+                if(StudentsList.Where(student => student.RollsSinceSelection == 3).Count() == 0 || tries == 10)
                 {
                     RolledText = "No student qualified for rolling. Try rolling a few more times.";
                     break;
@@ -111,7 +111,7 @@ namespace StudentRandomizer.ViewModels
                 }
 
                 var rolledStudent = StudentsList.First(student => student.IndexNumber == rolledIndex);
-                if(!rolledStudent.IsPresent || rolledStudent.RollsSinceSelection < 2)
+                if(!rolledStudent.IsPresent || rolledStudent.RollsSinceSelection < 3)
                 {
                     continue;
                 }
@@ -128,7 +128,7 @@ namespace StudentRandomizer.ViewModels
                     student.RollsSinceSelection = 0;
                     copiedList.Add(student);
                 }
-                else if(student.RollsSinceSelection < 2 && student.IndexNumber != LuckyNumber)
+                else if(student.RollsSinceSelection < 3 && student.IndexNumber != LuckyNumber)
                 {
                     student.RollsSinceSelection++;
                     copiedList.Add(student);
