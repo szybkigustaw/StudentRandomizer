@@ -46,6 +46,13 @@ namespace StudentRandomizer.Services
             _studentsModel.AddItems(students);
             _classesModel.AddItems(classes);
 
+#if DEBUG
+            foreach( var student in _studentsModel.Items) 
+            {
+                Debug.WriteLine( student.Id );
+            }
+#endif
+
             _studentsCountService.UpdateMaxStudentsCount();
         }
 

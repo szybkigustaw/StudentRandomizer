@@ -47,7 +47,7 @@ namespace StudentRandomizer.Services
             foreach (var item in _classesModel.Items)
             {
                 classesCounts.Add(
-                    _studentsModel.Items.Where(student => student.ClassId == item.Id).Count()
+                    _studentsModel.Items.Where(student => student.ClassName == item.ClassName).Count()
                     );
             }
 

@@ -5,5 +5,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <HorizontalStackLayout>
         <Label Text="{Binding ClassName}" />
+        <Button Clicked="Button_Clicked" Text="Edit" />
     </HorizontalStackLayout>
 </ContentView>

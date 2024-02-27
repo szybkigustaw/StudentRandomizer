@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace StudentRandomizer.Models
 
         public override string ToString()
         {
-            return $"{_id}";
+            return $"{Convert.ToString(_id)}";
         }
     }
 }

@@ -17,9 +17,9 @@ public partial class StudentView : ContentView
 		typeof(StudentView)
 		);
 
-	public static readonly BindableProperty ClassIdProperty = BindableProperty.Create(
-		nameof(ClassId),
-		typeof(Guid),
+	public static readonly BindableProperty ClassNameProperty = BindableProperty.Create(
+		nameof(ClassName),
+		typeof(string),
 		typeof(StudentView)
 		);
 
@@ -45,10 +45,10 @@ public partial class StudentView : ContentView
 		get => (string)GetValue(LastNameProperty);
 		set => SetValue(LastNameProperty, value);
 	}
-	public Guid ClassId
+	public string ClassName
 	{
-		get => (Guid)GetValue(ClassIdProperty);
-		set => SetValue(ClassIdProperty, value);
+		get => (string)GetValue(ClassNameProperty);
+		set => SetValue(ClassNameProperty, value);
 	}
 	public Guid StudentId
 	{
@@ -64,4 +64,18 @@ public partial class StudentView : ContentView
 	{
 		InitializeComponent();
 	}
+
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+		var navigationParameter = new Dictionary<string, object>
+		{
+			{"FirstName", FirstName },
+			{"LastName", LastName },
+			{"ClassName", ClassName },
+			{"StudentId", StudentId },
+			{"IsPresent", IsPresent }
+		};
+
+		await Shell.Current.GoToAsync("///EditStudent", navigationParameter);
+    }
 }
